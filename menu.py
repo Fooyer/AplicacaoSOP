@@ -1,6 +1,7 @@
 from firstfit import alocarMemoria_f, desalocarMemoria_f, list_allocated_blocks_f, list_unallocated_blocks_f
 from bestfit import alocarMemoria_b, desalocarMemoria_b, list_allocated_blocks_b, list_unallocated_blocks_b
 from worstfit import alocarMemoria_w, desalocarMemoria_w, list_allocated_blocks_w, list_unallocated_blocks_w
+from randomfit import alocarMemoria_r, desalocarMemoria_r, list_allocated_blocks_r, list_unallocated_blocks_r
 import os
 import time
 
@@ -13,6 +14,7 @@ while True:
     print("1- Alocação First Fit")
     print("2- Alocação Best Fit")
     print("3- Alocação Worst Fit")
+    print("4- Alocação Random")
     print("")
     print("9- Sair")
     print("")
@@ -236,6 +238,80 @@ while True:
                     print("Função inválida!")
 
                     time.sleep(3)
+    
+        case "4":
+
+            print("Funções: ")
+            print("")
+            print("1- Alocar Memória")
+            print("2- Desalocar Endereço")
+            print("3- Listar Blocos Alocados")
+            print("4- Listar Blocos Desalocados")
+            print("")
+
+            funcao = input("Digite uma função: ")
+
+            match funcao:
+
+                case "1":
+                    print("")
+
+                    valor = int(input("Valor a ser alocado: "))
+
+                    print("")
+
+                    print("Carregando...")
+
+                    print("")
+
+                    alocarMemoria_r(valor)
+
+                    time.sleep(3)
+
+                case "2":
+
+                    print("")
+
+                    valor = int(input("Valor a ser alocado: "))
+
+                    print("")
+
+                    print("Carregando...")
+
+                    print("")
+
+                    desalocarMemoria_r(valor)
+
+                    time.sleep(3)
+
+                case "3":
+                    
+                    os.system('cls' if os.name == 'nt' else 'clear')
+
+                    list_allocated_blocks_r()
+
+                    print("")
+                    input("Precione Enter Para Continuar...")
+
+                case "4":
+                    
+                    os.system('cls' if os.name == 'nt' else 'clear')
+
+                    list_unallocated_blocks_r()
+
+                    print("")
+                    input("Precione Enter Para Continuar...")
+                
+                case _:
+
+                    os.system('cls' if os.name == 'nt' else 'clear')
+
+                    print("Função inválida!")
+
+                    time.sleep(3)
+        
+        case "5":
+            break
 
         case "9":
             
